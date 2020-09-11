@@ -14,7 +14,6 @@ let contributions;
     item.publishDate = decodeURI(item.publishDate);
     // Avoid iOS Error
     item.date = new Date(item.publishDate.replace(/-/g, '/'));
-    alert(`${item.publishDate}\n${item.date}`);
     if (item.date.getFullYear() > year) {
       year = item.date.getFullYear();
     }
