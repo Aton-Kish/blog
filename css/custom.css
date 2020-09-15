@@ -1,6 +1,22 @@
+/*
+ * GitHub
+ */
+
+.avatar-user {
+  border-radius: 50%!important;
+}
+
+/*
+ * Alerts
+ */
+
 .alert {
   padding: 20px;
   color: white;
+}
+
+.avatar-user {
+  border-radius: 50%!important;
 }
 
 .label {
