@@ -3,7 +3,7 @@ gtag('js',new Date());gtag('config','UA-177653883-1');</script></head><body clas
 <span class=author><a href=https://aton-kish.github.io/blog/>Aton-Kish</a></span>
 <span class=path-divider>/</span>
 <strong itemprop=name class=css-truncate-target style=max-width:410px><a href=https://aton-kish.github.io/blog/post/2020/09/17/openstack-ussuri-horizon/>OpenStack Ussuri マニュアルインストールその７―Horizon編</a></strong><div class="d-block text-small text-gray">Created <time-ago datetime="2020/09/17 21:28:13" class=no-wrap title="Created at 2020/09/17 21:28:13">2020-09-17 21:28:13</time-ago>
-<span class=file-info-divider></span>Modified <time-ago datetime="2021/03/14 13:08:41" class=no-wrap title="Modified  at 2021/03/14 13:08:41">2021-03-14</time-ago></div></h1></div></div></div><div class="container-lg clearfix new-discussion-timeline experiment-repo-nav p-responsive"><div class=repository-content><div class="Box mt-3 position-relative"><div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">1740 Words</div></div><div id=readme class="Box-body readme blob instapaper_body js-code-block-container"><article class="markdown-body entry-content p-3 p-md-6" itemprop=text><h1 id=openstack-ussuri-マニュアルインストールその７horizon-編>OpenStack Ussuri マニュアルインストールその７―Horizon 編</h1><p><span class=label style=background-color:#053260>Controller</span></p><ul><li>Horizon はダッシュボードサービス</li><li>Web GUI から VM インスタンスやネットワーク管理などの簡単な操作ができてしまう</li><li>細かな設定をする場合は CLI が必要になることもあるらしいが、簡単な設定は Horizon で済んでしまう</li><li>Keystone のみあればインストール可能なので Keystone インストール直後に Horizon を入れて Glance や Nova、Neutron などが入っていく様子を Web から眺めてみるのもありかもしれない</li></ul><h2 id=インストール>インストール</h2><p><a href=https://docs.openstack.org/horizon/ussuri/install/install-ubuntu.html#install-and-configure-components><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1rem" height="1rem" style="fill:currentColor"><path d="M432 320H4e2a16 16 0 00-16 16V448H64V128H208a16 16 0 0016-16V80a16 16 0 00-16-16H48A48 48 0 000 112V464a48 48 0 0048 48H4e2a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37.0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0L435.28 133.32 471 169c15 15 41 4.5 41-17V24A24 24 0 00488 0z"/></svg>OpenStack Docs: Install and configure for Ubuntu - Install and configure components</a></p><ol><li><p>パッケージインストール</p><p><span class=label style=background-color:#f2a50c><span class=overlay style=margin-right:2px>#</span>root user</span></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>apt install openstack-dashboard
+<span class=file-info-divider></span>Modified <time-ago datetime="2021/03/14 14:39:39" class=no-wrap title="Modified  at 2021/03/14 14:39:39">2021-03-14</time-ago></div></h1></div></div></div><div class="container-lg clearfix new-discussion-timeline experiment-repo-nav p-responsive"><div class=repository-content><div class="Box mt-3 position-relative"><div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">1863 Words</div></div><div id=readme class="Box-body readme blob instapaper_body js-code-block-container"><article class="markdown-body entry-content p-3 p-md-6" itemprop=text><h1 id=openstack-ussuri-マニュアルインストールその７horizon-編>OpenStack Ussuri マニュアルインストールその７―Horizon 編</h1><p><span class=label style=background-color:#053260>Controller</span></p><ul><li>Horizon はダッシュボードサービス</li><li>Web GUI から VM インスタンスやネットワーク管理などの簡単な操作ができてしまう</li><li>細かな設定をする場合は CLI が必要になることもあるらしいが、簡単な設定は Horizon で済んでしまう</li><li>Keystone のみあればインストール可能なので Keystone インストール直後に Horizon を入れて Glance や Nova、Neutron などが入っていく様子を Web から眺めてみるのもありかもしれない</li></ul><h2 id=インストール>インストール</h2><p><a href=https://docs.openstack.org/horizon/ussuri/install/install-ubuntu.html#install-and-configure-components><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1rem" height="1rem" style="fill:currentColor"><path d="M432 320H4e2a16 16 0 00-16 16V448H64V128H208a16 16 0 0016-16V80a16 16 0 00-16-16H48A48 48 0 000 112V464a48 48 0 0048 48H4e2a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37.0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0L435.28 133.32 471 169c15 15 41 4.5 41-17V24A24 24 0 00488 0z"/></svg>OpenStack Docs: Install and configure for Ubuntu - Install and configure components</a></p><ol><li><p>パッケージインストール</p><p><span class=label style=background-color:#f2a50c><span class=overlay style=margin-right:2px>#</span>root user</span></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>apt install openstack-dashboard
 </code></pre></div></li><li><p><code>/etc/openstack-dashboard/local_settings.py</code>編集</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-local_settings.py data-lang=local_settings.py><span style=color:#75715e># ...</span>
 
 <span style=color:#75715e># コントローラノードのホスト名</span>
@@ -36,7 +36,8 @@ OPENSTACK_KEYSTONE_URL <span style=color:#f92672>=</span> <span style=color:#e6d
 
 <span style=color:#75715e># Keystoneマルチドメインを有効</span>
 <span style=color:#75715e># OpenStackの`Default`ドメイン以外も指定できるようになるということ…？</span>
-OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT <span style=color:#f92672>=</span> True
+<span style=color:#75715e># Default以外のドメインを使わないのであれば追加しなくてよい</span>
+<span style=color:#75715e># OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True</span>
 
 <span style=color:#75715e># 各APIバージョン</span>
 OPENSTACK_API_VERSIONS <span style=color:#f92672>=</span> {
@@ -47,12 +48,25 @@ OPENSTACK_API_VERSIONS <span style=color:#f92672>=</span> {
 
 <span style=color:#75715e># ダッシュボード上でユーザ作成した場合のデフォルトのOpenStackのドメインを`Default`とする</span>
 <span style=color:#75715e># ダッシュボード上でユーザ作成した場合のデフォルトの役割を`user`とする</span>
-<span style=color:#75715e># が、この設定効いていない気がする…</span>
-OPENSTACK_KEYSTONE_DEFAULT_DOMAIN <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Default&#34;</span>
-OPENSTACK_KEYSTONE_DEFAULT_ROLE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;user&#34;</span>
+<span style=color:#75715e># が、この設定効いていない気がするので追加しなくよいと思います…</span>
+<span style=color:#75715e># OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = &#34;Default&#34;</span>
+<span style=color:#75715e># OPENSTACK_KEYSTONE_DEFAULT_ROLE = &#34;user&#34;</span>
 
 <span style=color:#75715e># タイムゾーン変更（任意）</span>
 TIME_ZONE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Asia/Tokyo&#34;</span>
+
+<span style=color:#75715e># ...</span>
+
+<span style=color:#75715e># デフォルトではUbuntuカラーのテーマだが、変更することも可能（任意）</span>
+<span style=color:#75715e># ファイル末尾に設定がある</span>
+
+<span style=color:#75715e>###############################################################################</span>
+<span style=color:#75715e># Ubuntu Settings</span>
+<span style=color:#75715e>###############################################################################</span>
+
+<span style=color:#75715e># The default theme if no cookie is present</span>
+<span style=color:#75715e># DEFAULT_THEME = &#39;ubuntu&#39;</span>
+DEFAULT_THEME <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;default&#39;</span>
 
 <span style=color:#75715e># ...</span>
 </code></pre></div><ul><li><strong><code>local_settings.py</code>内には<code>ALLOWED_HOSTS</code>が 2 つあり、そのうち Ubuntu の構成セクションの<code>ALLOWED_HOSTS</code>は変えてはならないので注意</strong></li><li><strong><code>OPENSTACK_KEYSTONE_URL</code>にポート 5000 を追加する必要があるので注意</strong></li><li>Django 製なので詳細は Django に従う</li></ul></li><li><p><code>/etc/apache2/conf-available/openstack-dashboard.conf</code>確認</p><ul><li><p><code>WSGIApplicationGroup %{GLOBAL}</code>の行があることを確認する</p></li><li><p>なければ追加する</p><pre><code class=language-openstack-dashboard.conf data-lang=openstack-dashboard.conf># ...
